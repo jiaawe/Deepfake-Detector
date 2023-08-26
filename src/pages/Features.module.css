@@ -1,0 +1,92 @@
+.features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.leftFlex {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.rightFlex {
+  flex: 1 1 auto;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.sampleImages {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+button {
+  padding: 10px 20px;
+  border: solid 2px #4f46e5;
+  background-color: inherit;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 24px;
+  color: #4f46e5;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transform: scale(1.1);
+  width: 91%;
+  align-self: center;
+}
+
+button:hover:enabled {
+  background-color: #4f46e5;
+  color: #eef2ff;
+}
+
+button:disabled {
+  border: solid 2px #4f46e580;
+  color: #4f46e580;
+  cursor: not-allowed;
+}
+
+.imageWrapper {
+  position: relative; /* Make it the positioning reference for its children */
+}
+
+.cancelButton {
+  position: absolute; /* Position it relative to the imageWrapper */
+  top: 5px; /* Some space from the top */
+  left: 20px; /* Some space from the left */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  color: white; /* React icon color */
+  border: none;
+  border-radius: 50%; /* Make it round */
+  padding: 5px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.cancelButton:hover {
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker on hover */
+}
+
+.uploadedImage {
+  max-width: 100%;
+  max-height: 300px; /* Adjust based on your desired maximum height for the image */
+  display: block;
+  margin: 0 auto; /* Center the image if it's smaller than the container width */
+}
