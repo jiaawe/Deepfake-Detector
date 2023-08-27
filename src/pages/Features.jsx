@@ -101,7 +101,11 @@ export default function Features() {
         ) : (
           <ImageUploader onFileSelect={handleFileSelect} />
         )}
-        <button onClick={handleSubmit} disabled={!selectedImage}>
+        <button
+          className={styles.btn}
+          onClick={handleSubmit}
+          disabled={!selectedImage}
+        >
           Submit
         </button>
       </div>

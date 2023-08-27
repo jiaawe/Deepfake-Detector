@@ -1,20 +1,11 @@
 .features {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
 }
 
 .leftFlex {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-.rightFlex {
-  flex: 1 1 auto;
-  width: 85%;
+  flex: 1 1 0%;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -32,8 +23,24 @@
   object-fit: cover;
 }
 
-button {
-  padding: 10px 20px;
+.image:hover {
+  border: solid 4px #4f46e5;
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.rightFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 32px;
+  width: 100%;
+}
+
+.btn {
+  width: 91%; /* Set the button width to 100% */
+  padding: 10px 0;
   border: solid 2px #4f46e5;
   background-color: inherit;
   border-radius: 4px;
@@ -43,18 +50,16 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
   transform: scale(1.1);
-  width: 91%;
-  align-self: center;
 }
 
-button:hover:enabled {
+.btn:hover:enabled {
   background-color: #4f46e5;
   color: #eef2ff;
 }
 
-button:disabled {
-  border: solid 2px #4f46e580;
-  color: #4f46e580;
+.btn:disabled {
+  border: solid 2px #4f46e550;
+  color: #4f46e550;
   cursor: not-allowed;
 }
 
@@ -86,7 +91,7 @@ button:disabled {
 
 .uploadedImage {
   max-width: 100%;
-  max-height: 300px; /* Adjust based on your desired maximum height for the image */
+  max-height: 330px; /* Adjust based on your desired maximum height for the image */
   display: block;
   margin: 0 auto; /* Center the image if it's smaller than the container width */
 }
