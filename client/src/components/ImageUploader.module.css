@@ -1,0 +1,20 @@
+.dropzone {
+  border: 2px dashed #cccccc;
+  border-radius: 4px;
+  padding: 15% 30%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.dropzone:hover {
+  border: 2px dashed #1e1b4b;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+span {
+  color: #4f46e5;
+}
