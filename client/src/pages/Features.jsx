@@ -25,7 +25,7 @@ export default function Features() {
 
     // Send image to server for prediction
     axios
-      .post("http://localhost:8000/upload", formData)
+      .post("/upload", formData)
       .then((response) => {
         console.log(response.data);
 
