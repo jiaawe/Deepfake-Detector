@@ -85,15 +85,39 @@
   height: 40px;
 }
 
+.cancelButtonVideo {
+  position: absolute; /* Position it relative to the imageWrapper */
+  top: 5px; /* Some space from the top */
+  left: -30px; /* Some space from the left */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  color: white; /* React icon color */
+  border: none;
+  border-radius: 50%; /* Make it round */
+  padding: 5px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
 .cancelButton:hover {
   background: rgba(0, 0, 0, 0.8); /* Slightly darker on hover */
 }
 
-.uploadedImage {
+.uploadedImage,
+.lottieContainer {
   max-width: 100%;
   max-height: 330px; /* Adjust based on your desired maximum height for the image */
   display: block;
   margin: 0 auto; /* Center the image if it's smaller than the container width */
+}
+
+.lottieContainer {
+  height: 100%;
+  scale: 1.5;
 }
 
 .progressBar {

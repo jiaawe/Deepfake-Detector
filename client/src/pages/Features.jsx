@@ -3,6 +3,8 @@ import ImageUploader from "../components/ImageUploader";
 import { useState } from "react";
 import { IoReturnUpBack } from "react-icons/io5";
 import axios from "axios";
+import { Player } from "@lottiefiles/react-lottie-player";
+import animationImage from "../assets/animationImage.json";
 
 export default function Features() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,6 +13,7 @@ export default function Features() {
 
   const handleFileSelect = (file) => {
     setSelectedImage(file);
+    setPrediction(null);
   };
 
   const handleSubmit = () => {
@@ -25,14 +28,14 @@ export default function Features() {
 
     // Send image to server for prediction
     axios
-      .post("/upload", formData)
+      .post("http://localhost:8000/upload", formData)
       .then((response) => {
         console.log(response.data);
 
         setTimeout(() => {
           setIsLoading(false);
           setPrediction(response.data.message);
-        }, 2000);
+        }, 3500);
       })
       .catch((error) => {
         console.error("Error uploading image:", error);
@@ -58,59 +61,109 @@ export default function Features() {
             src="http://localhost:8000/static/photo_2023-08-17_23-10-02.jpg"
             alt="Sample 1"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-02.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-02.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
             src="http://localhost:8000/static/photo_2023-08-17_23-10-05.jpg"
             alt="Sample 2"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-05.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-05.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
             src="http://localhost:8000/static/photo_2023-08-17_23-10-07.jpg"
             alt="Sample 3"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-07.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-07.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
             src="http://localhost:8000/static/photo_2023-08-17_23-10-08.jpg"
             alt="Sample 4"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-08.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-08.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-08-17_23-10-11.jpg"
+            src="http://localhost:8000/static/photo_2023-08-17_23-10-22.jpg"
             alt="Sample 5"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-11.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-22.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-08-17_23-10-12.jpg"
+            src="http://localhost:8000/static/photo_2023-09-04_23-49-00.jpg"
             alt="Sample 6"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-12.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-09-04_23-49-00.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-08-17_23-10-14.jpg"
+            src="http://localhost:8000/static/photo_2023-09-04_23-44-33.jpg"
             alt="Sample 7"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-14.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-09-04_23-44-33.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
             src="http://localhost:8000/static/photo_2023-08-17_23-10-16.jpg"
             alt="Sample 8"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-16.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-16.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
             src="http://localhost:8000/static/photo_2023-08-17_23-10-18.jpg"
             alt="Sample 9"
             className={styles.image}
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-18.jpg")}
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-08-17_23-10-18.jpg"
+              );
+              setPrediction(null);
+            }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-08-17_23-10-20.jpg"
-            onClick={() => setSelectedImage("photo_2023-08-17_23-10-20.jpg")}
+            src="http://localhost:8000/static/photo_2023-09-04_23-44-37.jpg"
+            onClick={() => {
+              setSelectedImage(
+                "http://localhost:8000/static/photo_2023-09-04_23-44-37.jpg"
+              );
+              setPrediction(null);
+            }}
             alt="Sample 10"
             className={styles.image}
           />
@@ -118,9 +171,12 @@ export default function Features() {
       </div>
       <div className={styles.rightFlex}>
         {isLoading && (
-          <div className={styles.progressBar}>
-            <div></div>
-          </div>
+          <Player
+            autoplay
+            loop
+            src={animationImage}
+            className={styles.lottieContainer}
+          ></Player>
         )}
         {!isLoading &&
           (selectedImage ? (

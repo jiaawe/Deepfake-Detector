@@ -11,6 +11,18 @@
   gap: 4rem;
 }
 
+.nav a:link,
+.nav a:visited {
+  text-decoration: none;
+  color: #4338ca;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  color: #6366f1;
+}
+
 .githubIcon:active,
 .githubIcon:link,
 .githubIcon:hover,

@@ -1,6 +1,8 @@
 import PageNav from "../components/PageNav";
 import styles from "./Homepage.module.css";
 import Features from "./Features";
+import AudioFeatures from "./AudioFeatures";
+import VideoFeatures from "./VideoFeatures";
 import Footer from "./Footer";
 export default function Homepage() {
   return (
