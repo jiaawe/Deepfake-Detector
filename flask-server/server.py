@@ -65,11 +65,12 @@ def upload_video():
             cap = cv2.VideoCapture(video_path)
             total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
             frames_to_extract = np.random.choice(
-                total_frames, 250, replace=False)  # Extract 250 random frames
+                total_frames, min(250, total_frames), replace=False)  # Extract 250 random frames
 
             ai_count = 0
             human_count = 0
             loaded_model = load_model('./model/cnn_model2.h5')
+            image_score = 0
 
             for frame_no in frames_to_extract:
                 cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no)
@@ -83,19 +84,23 @@ def upload_video():
                     x /= 255
 
                     prediction = loaded_model.predict(x)
+                    image_score += prediction
                     if prediction < 0.5:
                         human_count += 1
                     else:
                         ai_count += 1
+            image_score = image_score / len(frames_to_extract)
             loaded_model = load('./model/audio.pkl')
             features = preprocess_video(video_path)
             prediction = loaded_model.predict([features])
+            print("Image Score: ", image_score)
+            print("Audio Score: ", prediction)
 
             if 'filepath' not in request.form and os.path.exists(video_path):
                 os.remove(video_path)
 
             majority_vote = "AI Generated" if ai_count > human_count else "Human Generated"
-            if majority_vote == "AI Generated" or prediction > 0.5:
+            if majority_vote == "AI Generated" or prediction < 0.5:
                 return jsonify({"message": "AI Generated"})
             else:
                 return jsonify({"message": "Human Generated"})
@@ -143,7 +148,7 @@ def upload_audio():
                 os.remove(video_path)
             print(prediction)
 
-            if prediction < 0.5:
+            if prediction >= 0.5:
                 return jsonify({"message": "Human Generated"})
             else:
                 return jsonify({"message": "AI Generated"})

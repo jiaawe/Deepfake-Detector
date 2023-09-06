@@ -7,7 +7,7 @@ const Footer = () => {
         <img src="/logo.png" alt="WorldWise logo" className={styles.logo} />
         <p className={styles.text}>
           Copyright &copy; 2023. This project is submitted as part of Anaconda
-          AI/ML Hackathon.
+          AI/ML Data Science Expo.
         </p>
       </div>
       <div className={styles.member}>

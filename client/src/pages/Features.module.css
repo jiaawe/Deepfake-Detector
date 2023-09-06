@@ -17,9 +17,21 @@
   gap: 18px;
 }
 
+.sampleAudios {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .image {
   height: 100px;
   width: 100px;
+  object-fit: cover;
+}
+
+.audio {
+  height: 200px;
+  width: 300px;
   object-fit: cover;
 }
 

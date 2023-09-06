@@ -102,13 +102,11 @@ export default function Features() {
             }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-08-17_23-10-22.jpg"
+            src="http://localhost:8000/static/img000004.jpg"
             alt="Sample 5"
             className={styles.image}
             onClick={() => {
-              setSelectedImage(
-                "http://localhost:8000/static/photo_2023-08-17_23-10-22.jpg"
-              );
+              setSelectedImage("http://localhost:8000/static/img000004.jpg");
               setPrediction(null);
             }}
           />
@@ -157,11 +155,9 @@ export default function Features() {
             }}
           />
           <img
-            src="http://localhost:8000/static/photo_2023-09-04_23-44-37.jpg"
+            src="http://localhost:8000/static/img000026.jpg"
             onClick={() => {
-              setSelectedImage(
-                "http://localhost:8000/static/photo_2023-09-04_23-44-37.jpg"
-              );
+              setSelectedImage("http://localhost:8000/static/img000026.jpg");
               setPrediction(null);
             }}
             alt="Sample 10"
